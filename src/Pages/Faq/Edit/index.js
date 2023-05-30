@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, Tooltip } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Form, Input, Button, Switch, Upload, Tag } from "antd";
 import { connect } from "react-redux";
 
@@ -243,77 +243,6 @@ const Add = (props) => {
                           Буцах
                         </Button>
                       </div>
-                    </div>
-                  </div>
-
-                  <div className="card">
-                    <div class="card-header">
-                      <h3 class="card-title">Түлхүүр үгс</h3>
-                    </div>
-                    <div className="card-body">
-                      <>
-                        {tags.map((tag, index) => {
-                          if (editInputIndex === index) {
-                            return (
-                              <Input
-                                ref={editInputRef}
-                                key={tag}
-                                size="small"
-                                className="tag-input"
-                                value={editInputValue}
-                                onChange={handleEditInputChange}
-                                onBlur={handleEditInputConfirm}
-                                onPressEnter={handleEditInputConfirm}
-                              />
-                            );
-                          }
-                          const isLongTag = tag.length > 20;
-                          const tagElem = (
-                            <Tag
-                              className="edit-tag"
-                              key={tag}
-                              closable={index !== 0}
-                              onClose={() => handleClose(tag)}
-                            >
-                              <span
-                                onDoubleClick={(e) => {
-                                  if (index !== 0) {
-                                    setEditInputIndex(index);
-                                    setEditInputValue(tag);
-                                    e.preventDefault();
-                                  }
-                                }}
-                              >
-                                {isLongTag ? `${tag.slice(0, 20)}...` : tag}
-                              </span>
-                            </Tag>
-                          );
-                          return isLongTag ? (
-                            <Tooltip title={tag} key={tag}>
-                              {tagElem}
-                            </Tooltip>
-                          ) : (
-                            tagElem
-                          );
-                        })}
-                        {inputVisible && (
-                          <Input
-                            ref={inputRef}
-                            type="text"
-                            size="small"
-                            className="tag-input"
-                            value={inputValue}
-                            onChange={handleInputChange}
-                            onBlur={handleInputConfirm}
-                            onPressEnter={handleInputConfirm}
-                          />
-                        )}
-                        {!inputVisible && (
-                          <Tag className="site-tag-plus" onClick={showInput}>
-                            <PlusOutlined /> Түлхүүр үг нэмэх
-                          </Tag>
-                        )}
-                      </>
                     </div>
                   </div>
                 </div>

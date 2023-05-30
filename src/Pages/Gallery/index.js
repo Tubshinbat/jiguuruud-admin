@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
-import { Button, Modal, Input, Table, Tag, Space, Tooltip } from "antd";
+import { Button, Modal, Input, Table, Tag, Space } from "antd";
 import { connect } from "react-redux";
 import Highlighter from "react-highlight-words";
 import moment from "moment";
@@ -514,30 +514,26 @@ const Gallery = (props) => {
                     </button>
                   </div>
                   <div className="datatable-tools">
-                    <Tooltip placement="left" title="Шинчлэх">
-                      <button
-                        className="datatable-tool"
-                        onClick={() => refreshTable()}
-                      >
-                        <i className="fas fa-redo"></i>
-                      </button>
-                    </Tooltip>
-                    <Tooltip placement="left" title="Excel файл болгон татах">
-                      <button
-                        className="datatable-tool"
-                        onClick={() => exportExcel()}
-                      >
-                        <i className="far fa-file-excel"></i>
-                      </button>
-                    </Tooltip>
-                    <Tooltip placement="left" title="Баганын тохиргоо">
-                      <button
-                        className="datatable-tool"
-                        onClick={() => showModal("column")}
-                      >
-                        <i className="fas fa-columns"></i>
-                      </button>
-                    </Tooltip>
+                    <button
+                      className="datatable-tool"
+                      onClick={() => refreshTable()}
+                    >
+                      <i className="fas fa-redo"></i>
+                    </button>
+
+                    <button
+                      className="datatable-tool"
+                      onClick={() => exportExcel()}
+                    >
+                      <i className="far fa-file-excel"></i>
+                    </button>
+
+                    <button
+                      className="datatable-tool"
+                      onClick={() => showModal("column")}
+                    >
+                      <i className="fas fa-columns"></i>
+                    </button>
                   </div>
                 </div>
                 <div className="tableBox">
